@@ -11,7 +11,14 @@ program
   .option('-n, --newfile <newfile>', 'Define the target location')
   .parse(process.argv);
 
-if (!program.target) {
-  showErr('No salvo file specified.  Please provide a relative file path with the -t parameter');
-  process.exit();
-}
+  if (!program.jsonfile) {
+    showErr('No source file specified.  Please provide a relative file path with the -j parameter');
+    process.exit();
+  }
+  if (!program.newfile) {
+    showErr('No newfile destination specified.  Please provide a relative file path with the -n parameter');
+    process.exit();
+  }
+
+
+  j2m.saveJsonFileAsMochaFile(program.jsonfile, program.newfile);
