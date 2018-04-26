@@ -21,4 +21,4 @@ program
   }
 
 
-  j2m.saveJsonFileAsMochaFile(program.jsonfile, program.newfile);
+  j2m.saveJsonFileAsMochaFile(program.newfile, program.jsonfile);
